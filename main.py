@@ -19,9 +19,10 @@ def main():
     G = network_graph.create_graph(dataset,name_list)
 
     print G.edges()
+    print_friends(dataset[0],name_list[0])
 
-def print_friends(data):
-    print "Number of Friends: " + str(len(data))
+def print_friends(data, name):
+    print "Number of Friends for " + name + ": " + str(len(data))
     for friend in data:
         print friend
 
