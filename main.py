@@ -4,7 +4,7 @@ __author__ = 'johnfulgoni'
 import create_dataset
 import network_graph
 
-jack_filename = 'Jacks_Facebook.csv'
+jack_filename = 'Data/Jacks_Facebook.csv'
 
 def main():
     # api_attempt.start()

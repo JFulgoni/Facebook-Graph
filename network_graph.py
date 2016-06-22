@@ -2,6 +2,7 @@ __author__ = 'johnfulgoni'
 
 # https://plot.ly/ipython-notebooks/network-graphs/
 # https://networkx.github.io/documentation/networkx-1.10/tutorial/tutorial.html
+# https://plot.ly/ipython-notebooks/network-graphs/
 
 import plotly.plotly as py
 from plotly.graph_objs import *
