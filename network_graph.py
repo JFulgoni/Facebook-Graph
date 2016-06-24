@@ -1,11 +1,5 @@
 __author__ = 'johnfulgoni'
 
-# https://networkx.github.io/documentation/networkx-1.10/tutorial/tutorial.html
-# https://plot.ly/ipython-notebooks/network-graphs/
-
-import plotly.plotly as py
-import plotly.graph_objs as go
-
 import networkx as nx
 import main
 import matplotlib.pyplot as plt
@@ -29,10 +23,10 @@ def print_edges(G):
 
 def mat_draw(G):
     pos=nx.spring_layout(G)   #G is my graph
-
     nx.draw(G,pos,node_color='#A0CBE2',edge_color='#ff944d',width=0.5,edge_cmap=plt.cm.Blues,with_labels=True)
     #plt.savefig("graph.pdf")
-    plt.savefig("graph.png", dpi=1000)
+    plt.savefig("Output/graph.png", dpi=1000)
+    print "Graph Success!"
 
 if __name__ == '__main__':
     main.main()
