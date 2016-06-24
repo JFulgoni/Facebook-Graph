@@ -10,16 +10,21 @@ def main():
     # api_attempt.start()
 
     name_list = []
-    dataset = []
+    raw_dataset = []
+    key_list = {}
 
-    jack_data = create_dataset.process_file(jack_filename)
-    dataset.append(jack_data)
+    jack_raw_data = create_dataset.import_raw_file(jack_filename)
+    raw_dataset.append(jack_raw_data)
     name_list.append('Jack Holtgreive')
 
-    G = network_graph.create_graph(dataset,name_list)
+    for dataset, name in zip(raw_dataset,name_list):
+        key_list = create_dataset.anonymize_data(key_list, dataset, name)
 
-    print G.edges()
-    print_friends(dataset[0],name_list[0])
+    print key_list['John Fulgoni']
+
+    G = network_graph.create_graph(raw_dataset,name_list,key_list)
+    #network_graph.print_edges(G)
+    network_graph.mat_draw(G)
 
 def print_friends(data, name):
     print "Number of Friends for " + name + ": " + str(len(data))

@@ -5,8 +5,7 @@ import csv
 import sys
 import math
 
-def process_file(filename):
-
+def import_raw_file(filename):
     data = []
     counter = 0
     with open(filename, 'rb') as csvfile:
@@ -28,6 +27,25 @@ def process_file(filename):
 def should_continue(row):
     if (not row) or (row[0] == 'FriendFriends') or ('friends' in row[0]):
         return True
+
+def anonymize_data(key_list, data, name):
+    values = key_list.values()
+    keys = key_list.keys()
+    if len(values) < 1:
+        max_value = -1
+    else:
+        max_value = max(values)
+
+    if name not in values:
+        max_value += 1
+        key_list[name] = max_value
+
+    for friend in data:
+        if friend not in values:
+            max_value += 1
+            key_list[friend] = max_value
+
+    return key_list
 
 if __name__ == '__main__':
     main.main()
